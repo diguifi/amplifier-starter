@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Amplifier.AspNetCore" Version="0.2.2" />
+  </ItemGroup>
+
 </Project>
