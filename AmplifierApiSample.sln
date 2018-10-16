@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplifierApiSample", "src\AmplifierApiSample.csproj", "{6FC13503-0349-458E-8AC5-C67C8129B573}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FC13503-0349-458E-8AC5-C67C8129B573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC13503-0349-458E-8AC5-C67C8129B573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC13503-0349-458E-8AC5-C67C8129B573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC13503-0349-458E-8AC5-C67C8129B573}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21BD7EC5-F15B-4138-8995-B40E803719FB}
+	EndGlobalSection
+EndGlobal
