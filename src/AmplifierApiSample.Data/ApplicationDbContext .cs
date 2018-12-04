@@ -1,12 +1,14 @@
 ﻿using Amplifier.AspNetCore.Authentication;
 using Amplifier.EntityFrameworkCore;
+using Amplifier.EntityFrameworkCore.Identity;
 using AmplifierApiSample.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace AmplifierApiSample.Data
 {
-    public class ApplicationDbContext : DbContextBase<int>
+    public class ApplicationDbContext : IdentityDbContextBase<int, User, IdentityRole<int>, int>
     {
         private readonly IUserSession<int> _userSession;
 
@@ -16,7 +18,7 @@ namespace AmplifierApiSample.Data
         }
 
         public DbSet<Tenant> Tenants { get; set; }
-        public DbSet<User> Users { get; set; }
+        new public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -24,8 +26,7 @@ namespace AmplifierApiSample.Data
             builder.MultiTenancy<Tenant>(entities);
             builder.Auditing<User, int>(entities);
             EnableTenantAndSoftDeleteFilters(builder, entities);
-            base.OnModelCreating(builder);
-            
+            base.OnModelCreating(builder);            
         }
     }
 }
