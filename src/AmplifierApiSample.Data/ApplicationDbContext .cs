@@ -1,7 +1,8 @@
 ﻿using Amplifier.AspNetCore.Authentication;
 using Amplifier.EntityFrameworkCore;
 using Amplifier.EntityFrameworkCore.Identity;
-using AmplifierApiSample.Domain.Models;
+using AmplifierApiSample.Domain.Authorization;
+using AmplifierApiSample.Domain.MultiTenancy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
