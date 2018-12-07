@@ -1,5 +1,6 @@
 ﻿using Amplifier.AspNetCore.Authentication;
 using AmplifierApiSample.Data;
+using AmplifierApiSample.Domain.Authorization;
 using AmplifierApiSample.Domain.MultiTenancy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,7 @@ namespace AmplifierApiSample
 
             services.AddScoped<IUserSession<int>, UserSession<int>>();
             services.AddScoped<ITenantManager, TenantManager>();
+            services.AddScoped<IUserManager, UserManager>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
