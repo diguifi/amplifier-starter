@@ -1,10 +1,12 @@
 ﻿using AmplifierApiSample.Domain.MultiTenancy;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
 namespace AmplifierApiSample.WebApi.Controllers
 {
+    [Authorize("Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class TenantsController : ControllerBase

@@ -1,4 +1,5 @@
 ﻿using AmplifierApiSample.Domain.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -6,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AmplifierApiSample.WebApi.Controllers
 {
+    [Authorize("Bearer")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class UsersController :ControllerBase
     {
         private readonly IUserManager _userManager;
@@ -32,7 +36,7 @@ namespace AmplifierApiSample.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            var user = await _userManager.GetUserById(id);
+            var user = await _userManager.FindByIdAsync(id.ToString());
             if (user != null)
             {
                 return Ok(user);
@@ -47,7 +51,7 @@ namespace AmplifierApiSample.WebApi.Controllers
         {
             try
             {
-                await _userManager.CreateUser(user, password);
+                await _userManager.CreateAsync(user, password);
                 return Ok(new { Mensagem = "User created successfully" });
             }
             catch (Exception ex)
@@ -62,7 +66,7 @@ namespace AmplifierApiSample.WebApi.Controllers
         {
             try
             {
-                var result = await _userManager.UpdateUser(user);
+                var result = await _userManager.UpdateAsync(user);
 
                 if (result == IdentityResult.Success)
                 {
@@ -81,7 +85,7 @@ namespace AmplifierApiSample.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var user = await _userManager.GetUserById(id);
+            var user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null)
             {
                 return NotFound("User not found.");
@@ -89,7 +93,7 @@ namespace AmplifierApiSample.WebApi.Controllers
 
             try
             {
-                var result = await _userManager.DeleteUser(user);
+                var result = await _userManager.DeleteAsync(user);
 
                 if (result == IdentityResult.Success)
                 {

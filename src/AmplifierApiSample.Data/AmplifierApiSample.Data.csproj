@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Amplifier.AspNetCore" Version="0.2.4" />
-    <PackageReference Include="Amplifier.EntityFrameworkCore" Version="0.2.4" />
+    <PackageReference Include="Amplifier.AspNetCore" Version="0.3.4" />
+    <PackageReference Include="Amplifier.EntityFrameworkCore" Version="0.3.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
   </ItemGroup>

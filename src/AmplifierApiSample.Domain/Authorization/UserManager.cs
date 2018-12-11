@@ -25,29 +25,9 @@ namespace AmplifierApiSample.Domain.Authorization
 
         }
 
-        public async Task<IdentityResult> CreateUser(User user, string password)
-        {
-            return await CreateAsync(user, password);            
-        }
-
-        public async Task<IdentityResult> UpdateUser(User user)
-        {
-            return await UpdateAsync(user);
-        }
-
-        public async Task<User> GetUserById(int id)
-        {
-            return await GetUserById(id);
-        }
-
         public async Task<IList<User>> GetAllUsers()
         {
-            return await Users.ToListAsync();
-        }
-
-        public async Task<IdentityResult> DeleteUser(User user)
-        {
-            return await DeleteAsync(user);
+            return await Users.ToListAsync();            
         }
     }
 }

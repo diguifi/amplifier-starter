@@ -3,15 +3,17 @@ using System;
 using AmplifierApiSample.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AmplifierApiSample.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181207233440_AddRoles")]
+    partial class AddRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,11 +33,11 @@ namespace AmplifierApiSample.Data.Migrations
 
                     b.Property<DateTime>("CreationTime");
 
-                    b.Property<int?>("CreationUser");
+                    b.Property<int>("CreationUser");
 
                     b.Property<DateTime>("DeletionTime");
 
-                    b.Property<int?>("DeletionUser");
+                    b.Property<int>("DeletionUser");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -46,7 +48,7 @@ namespace AmplifierApiSample.Data.Migrations
 
                     b.Property<DateTime>("LastModificationTime");
 
-                    b.Property<int?>("LastModificationUser");
+                    b.Property<int>("LastModificationUser");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -93,10 +95,6 @@ namespace AmplifierApiSample.Data.Migrations
                     b.HasIndex("TenantId");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new { Id = 1, AccessFailedCount = 0, ConcurrencyStamp = "32fe9448-0c6c-43b2-b605-802c19c333a6", CreationTime = new DateTime(2018, 12, 10, 21, 31, 39, 94, DateTimeKind.Local), CreationUser = 1, DeletionTime = new DateTime(2018, 12, 10, 21, 31, 39, 97, DateTimeKind.Local), DeletionUser = 1, Email = "admin@admin.com", EmailConfirmed = true, IsDeleted = false, LastModificationTime = new DateTime(2018, 12, 10, 21, 31, 39, 97, DateTimeKind.Local), LastModificationUser = 1, LockoutEnabled = false, NormalizedEmail = "ADMIN@ADMIN.COM", NormalizedUserName = "ADMIN", PasswordHash = "AQAAAAEAACcQAAAAEIyYVzBXCyHLBa/p7Ve+9XzLldAqaIJ4N+0j36VFu5x/3/WlDU99TMwxIiwEh/Ar9g==", PhoneNumber = "123", PhoneNumberConfirmed = true, SecurityStamp = "ce907fd5-ccb4-4e96-a7ea-45712a14f5ef", TwoFactorEnabled = false, UserName = "admin" }
-                    );
                 });
 
             modelBuilder.Entity("AmplifierApiSample.Domain.MultiTenancy.Tenant", b =>
@@ -106,11 +104,11 @@ namespace AmplifierApiSample.Data.Migrations
 
                     b.Property<DateTime>("CreationTime");
 
-                    b.Property<int?>("CreationUser");
+                    b.Property<int>("CreationUser");
 
                     b.Property<DateTime>("DeletionTime");
 
-                    b.Property<int?>("DeletionUser");
+                    b.Property<int>("DeletionUser");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
@@ -122,7 +120,7 @@ namespace AmplifierApiSample.Data.Migrations
 
                     b.Property<DateTime>("LastModificationTime");
 
-                    b.Property<int?>("LastModificationUser");
+                    b.Property<int>("LastModificationUser");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -147,9 +145,6 @@ namespace AmplifierApiSample.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("Name")
                         .HasMaxLength(256);
 
@@ -163,8 +158,6 @@ namespace AmplifierApiSample.Data.Migrations
                         .HasName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole<int>");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -233,10 +226,6 @@ namespace AmplifierApiSample.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-
-                    b.HasData(
-                        new { UserId = 1, RoleId = 1 }
-                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
@@ -254,20 +243,6 @@ namespace AmplifierApiSample.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("AmplifierApiSample.Domain.Authentication.Role", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<int>");
-
-
-                    b.ToTable("Role");
-
-                    b.HasDiscriminator().HasValue("Role");
-
-                    b.HasData(
-                        new { Id = 1, ConcurrencyStamp = "4c157928-7c57-41e3-a58f-ca7514546a6e", Name = "Admin", NormalizedName = "ADMIN" }
-                    );
                 });
 
             modelBuilder.Entity("AmplifierApiSample.Domain.Authorization.User", b =>

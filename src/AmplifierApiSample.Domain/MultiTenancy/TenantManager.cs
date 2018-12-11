@@ -7,9 +7,9 @@ namespace AmplifierApiSample.Domain.MultiTenancy
 {
     public class TenantManager : ITenantManager
     {
-        private readonly IRepositorioBase<Tenant, int> _tenantRepository;
+        private readonly IRepositoryBase<Tenant, int> _tenantRepository;
 
-        public TenantManager(IRepositorioBase<Tenant, int> tenantRepository)
+        public TenantManager(IRepositoryBase<Tenant, int> tenantRepository)
         {
             _tenantRepository = tenantRepository;
         }
