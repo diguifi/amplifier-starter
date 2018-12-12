@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace AmplifierApiSample.Data
 {
-    public class ApplicationDbContext : IdentityDbContextBase<int, User, IdentityRole<int>, int>
+    public class ApplicationDbContext : IdentityDbContextBase<User, IdentityRole<int>, int>
     {
         private readonly IUserSession<int> _userSession;
 
