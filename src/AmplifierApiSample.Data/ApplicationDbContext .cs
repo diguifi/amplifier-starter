@@ -12,10 +12,13 @@ using System.Linq;
 namespace AmplifierApiSample.Data
 {
     public class ApplicationDbContext : IdentityDbContextBase<int, User, IdentityRole<int>, int>
-    {        
+    {
+        private readonly IUserSession<int> _userSession;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IUserSession<int> userSession)
             : base(options, userSession)
         {
+            _userSession = userSession;
         }
 
         public DbSet<Tenant> Tenants { get; set; }

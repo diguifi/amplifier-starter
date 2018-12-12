@@ -1,4 +1,6 @@
-﻿using AmplifierApiSample.Domain.MultiTenancy;
+﻿using Amplifier.AspNetCore.Authentication;
+using AmplifierApiSample.Domain.Authorization;
+using AmplifierApiSample.Domain.MultiTenancy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,10 +14,14 @@ namespace AmplifierApiSample.WebApi.Controllers
     public class TenantsController : ControllerBase
     {
         private readonly ITenantManager _tenantManager;
+        private readonly IUserManager _userManager;
+        private readonly IUserSession<int?> _userSession;
 
-        public TenantsController(ITenantManager tenantManager)
+        public TenantsController(ITenantManager tenantManager, IUserManager userManager, IUserSession<int?> userSession)
         {
             _tenantManager = tenantManager;
+            _userManager = userManager;
+            _userSession = userSession;
         }
 
         // GET: api/Tenants
@@ -50,13 +56,30 @@ namespace AmplifierApiSample.WebApi.Controllers
         {
             try
             {
-                await _tenantManager.Create(tenant);
-                return Ok(new { Mensagem = "Tenant created successfully" });
+                int tenantId = await _tenantManager.Create(tenant);
+                _userSession.TenantId = tenantId;
             }
             catch (Exception ex)
             {                
                 return Conflict("Error in Tenant creation." + ex.Message);
-            }                       
+            }
+
+            try
+            {
+                var result = await _userManager.CreateAsync(new User
+                {
+                    Id = 0,
+                    UserName = "admin" + "-" + _userSession.TenantId.ToString(),
+                    Email = tenant.Email,
+                    EmailConfirmed = true,
+                }, "123@Qwe");
+
+                return Ok(new { Mensagem = "Tenant created successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Conflict("Error in Tenant creation." + ex.Message);
+            }
         }
 
         // PUT: api/Tenants/5
