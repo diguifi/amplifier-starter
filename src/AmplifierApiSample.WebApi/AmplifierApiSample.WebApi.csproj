@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\AmplifierApiSample.Application\AmplifierApiSample.Application.csproj" />
     <ProjectReference Include="..\AmplifierApiSample.Data\AmplifierApiSample.Data.csproj" />
   </ItemGroup>
 

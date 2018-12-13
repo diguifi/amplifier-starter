@@ -2,6 +2,7 @@
 using Amplifier.AspNetCore.Authentication;
 using Amplifier.AspNetCore.Repositories;
 using Amplifier.EntityFrameworkCore.Repositories;
+using AmplifierApiSample.Application.MultiTenancy;
 using AmplifierApiSample.Data;
 using AmplifierApiSample.Domain.Authentication;
 using AmplifierApiSample.Domain.Authorization;
@@ -116,6 +117,7 @@ namespace AmplifierApiSample
             services.AddScoped<ILoginManager, LoginManager>();
             services.AddScoped(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
             services.AddScoped<DbContext, ApplicationDbContext>();
+            services.AddScoped<ITenantAppService, TenantAppService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
