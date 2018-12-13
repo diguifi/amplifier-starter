@@ -38,8 +38,9 @@ namespace AmplifierApiSample
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("Default")));
+
             services.AddDefaultIdentity<User>()
-                .AddRoles<Role>()
+                    .AddRoles<Role>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

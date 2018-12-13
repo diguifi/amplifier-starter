@@ -15,9 +15,9 @@ namespace AmplifierApiSample.WebApi.Controllers
     {
         private readonly ITenantManager _tenantManager;
         private readonly IUserManager _userManager;
-        private readonly IUserSession<int?> _userSession;
+        private readonly IUserSession<int> _userSession;
 
-        public TenantsController(ITenantManager tenantManager, IUserManager userManager, IUserSession<int?> userSession)
+        public TenantsController(ITenantManager tenantManager, IUserManager userManager, IUserSession<int> userSession)
         {
             _tenantManager = tenantManager;
             _userManager = userManager;
