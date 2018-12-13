@@ -3,6 +3,8 @@ using AmplifierApiSample.Application.MultiTenancy.Dto;
 using AmplifierApiSample.Domain.Authorization;
 using AmplifierApiSample.Domain.MultiTenancy;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -40,7 +42,30 @@ namespace AmplifierApiSample.Application.MultiTenancy
 
         public async Task<int> Create(Tenant tenant)
         {
-            return await _tenantManager.Create(tenant);
+            int tenantId = await _tenantManager.Create(tenant);
+            _userSession.TenantId = tenantId;
+
+            try
+            {
+                IdentityResult userCreationResult = await _userManager.CreateAsync(new User
+                {
+                    Id = 0,
+                    UserName = "admin" + "-" + _userSession.TenantId.ToString(),
+                    Email = tenant.Email,
+                    EmailConfirmed = true,
+                }, "123@Qwe");
+
+                if(!userCreationResult.Succeeded)
+                {
+                    throw new Exception("Error creating Tenant admin user. " + userCreationResult.Errors);
+                }
+
+                return tenantId;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error creating Tenant admin user. " + ex.Message);
+            }
         }
 
         public async Task<TenantDto> Update(Tenant tenant)

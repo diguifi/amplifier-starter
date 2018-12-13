@@ -62,30 +62,13 @@ namespace AmplifierApiSample.WebApi.Controllers
         {
             try
             {
-                int tenantId = await _tenantAppService.Create(tenant);
-                _userSession.TenantId = tenantId;
+                await _tenantAppService.Create(tenant);                
+                return Ok(new { Mensagem = "Tenant created successfully" });
             }
             catch (Exception ex)
             {                
                 return Conflict("Error in Tenant creation." + ex.Message);
-            }
-
-            try
-            {
-                var result = await _userManager.CreateAsync(new User
-                {
-                    Id = 0,
-                    UserName = "admin" + "-" + _userSession.TenantId.ToString(),
-                    Email = tenant.Email,
-                    EmailConfirmed = true,
-                }, "123@Qwe");
-
-                return Ok(new { Mensagem = "Tenant created successfully" });
-            }
-            catch (Exception ex)
-            {
-                return Conflict("Error in Tenant creation." + ex.Message);
-            }
+            }            
         }
 
         // PUT: api/Tenants/5
