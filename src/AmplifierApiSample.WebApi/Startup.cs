@@ -6,6 +6,7 @@ using AmplifierApiSample.Data;
 using AmplifierApiSample.Domain.Authentication;
 using AmplifierApiSample.Domain.Authorization;
 using AmplifierApiSample.Domain.MultiTenancy;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -93,6 +94,8 @@ namespace AmplifierApiSample
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser().Build());
             });
+
+            services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
