@@ -1,8 +1,10 @@
-﻿using AmplifierApiSample.Domain.Authorization;
+﻿using AmplifierApiSample.Application.Users;
+using AmplifierApiSample.Application.Users.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmplifierApiSample.WebApi.Controllers
@@ -12,18 +14,18 @@ namespace AmplifierApiSample.WebApi.Controllers
     [ApiController]
     public class UsersController :ControllerBase
     {
-        private readonly IUserManager _userManager;
+        private readonly IUserAppService _userAppService;
 
-        public UsersController(IUserManager userManager)
+        public UsersController(IUserAppService userAppService)
         {
-            _userManager = userManager;
+            _userAppService = userAppService;
         }
 
         // GET: api/Users
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _userManager.GetAllUsers();
+            IList<UserDto> users = await _userAppService.GetAll();
             if (users.Count > 0)
             {
                 return Ok(users);
@@ -36,7 +38,7 @@ namespace AmplifierApiSample.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            var user = await _userManager.FindByIdAsync(id.ToString());
+            var user = await _userAppService.GetById(id);
             if (user != null)
             {
                 return Ok(user);
@@ -47,11 +49,11 @@ namespace AmplifierApiSample.WebApi.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public async Task<IActionResult> CreateUser(User user, string password)
+        public async Task<IActionResult> CreateUser(UserDto userDto, string password)
         {
             try
             {
-                await _userManager.CreateAsync(user, password);
+                await _userAppService.Create(userDto, password);
                 return Ok(new { Mensagem = "User created successfully" });
             }
             catch (Exception ex)
@@ -62,18 +64,18 @@ namespace AmplifierApiSample.WebApi.Controllers
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(User user)
+        public async Task<IActionResult> UpdateUser(UserDto userDto)
         {
             try
             {
-                var result = await _userManager.UpdateAsync(user);
+                var result = await _userAppService.Update(userDto);
 
                 if (result == IdentityResult.Success)
                 {
-                    return NotFound("User not found.");
+                    return Ok(userDto);
                 }
 
-                return Ok(user);
+                return NotFound("User not found.");                
             }
             catch (Exception ex)
             {
@@ -85,15 +87,9 @@ namespace AmplifierApiSample.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var user = await _userManager.FindByIdAsync(id.ToString());
-            if (user == null)
-            {
-                return NotFound("User not found.");
-            }
-
             try
             {
-                var result = await _userManager.DeleteAsync(user);
+                var result = await _userAppService.Delete(id);
 
                 if (result == IdentityResult.Success)
                 {
