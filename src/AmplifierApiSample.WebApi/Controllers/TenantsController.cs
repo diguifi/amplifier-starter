@@ -2,7 +2,6 @@
 using AmplifierApiSample.Application.MultiTenancy;
 using AmplifierApiSample.Application.MultiTenancy.Dto;
 using AmplifierApiSample.Domain.Authorization;
-using AmplifierApiSample.Domain.MultiTenancy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -58,11 +57,11 @@ namespace AmplifierApiSample.WebApi.Controllers
 
         // POST: api/Tenants
         [HttpPost]
-        public async Task<IActionResult> Post(Tenant tenant)
+        public async Task<IActionResult> Post(TenantDto tenantDto)
         {
             try
             {
-                await _tenantAppService.Create(tenant);                
+                await _tenantAppService.Create(tenantDto);                
                 return Ok(new { Mensagem = "Tenant created successfully" });
             }
             catch (Exception ex)
@@ -73,11 +72,11 @@ namespace AmplifierApiSample.WebApi.Controllers
 
         // PUT: api/Tenants/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Tenant tenant)
+        public async Task<IActionResult> Put(TenantDto tenantDto)
         {
             try
             {
-                TenantDto updatedTenant = await _tenantAppService.Update(tenant);
+                TenantDto updatedTenant = await _tenantAppService.Update(tenantDto);
 
                 if (updatedTenant == null)
                 {

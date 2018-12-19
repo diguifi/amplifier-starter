@@ -7,10 +7,10 @@ namespace AmplifierApiSample.Application.MultiTenancy
 {
     public interface ITenantAppService
     {
-        Task<int> Create(Tenant tenant);
+        Task<int> Create(TenantDto tenantDto);
         Task Delete(int id);
         Task<IList<TenantDto>> GetAll();
         Task<TenantDto> GetById(int id);
-        Task<TenantDto> Update(Tenant tenant);
+        Task<TenantDto> Update(TenantDto tenantDto);
     }
 }

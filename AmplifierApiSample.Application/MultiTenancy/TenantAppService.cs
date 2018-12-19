@@ -40,9 +40,9 @@ namespace AmplifierApiSample.Application.MultiTenancy
             return _mapper.Map<TenantDto>(tenant);
         }
 
-        public async Task<int> Create(Tenant tenant)
+        public async Task<int> Create(TenantDto tenantDto)
         {
-            int tenantId = await _tenantManager.Create(tenant);
+            int tenantId = await _tenantManager.Create(_mapper.Map<Tenant>(tenantDto));
             _userSession.TenantId = tenantId;
 
             try
@@ -51,7 +51,7 @@ namespace AmplifierApiSample.Application.MultiTenancy
                 {
                     Id = 0,
                     UserName = "admin" + "-" + _userSession.TenantId.ToString(),
-                    Email = tenant.Email,
+                    Email = tenantDto.Email,
                     EmailConfirmed = true,
                 }, "123@Qwe");
 
@@ -68,9 +68,9 @@ namespace AmplifierApiSample.Application.MultiTenancy
             }
         }
 
-        public async Task<TenantDto> Update(Tenant tenant)
+        public async Task<TenantDto> Update(TenantDto tenantDto)
         {
-            Tenant updatedTenant = await _tenantManager.Update(tenant);
+            Tenant updatedTenant = await _tenantManager.Update(_mapper.Map<Tenant>(tenantDto));
             return _mapper.Map<TenantDto>(updatedTenant);
         }
 
