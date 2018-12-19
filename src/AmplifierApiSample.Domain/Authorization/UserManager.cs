@@ -29,5 +29,21 @@ namespace AmplifierApiSample.Domain.Authorization
         {
             return await Users.ToListAsync();            
         }
+
+        public async Task<User> FindByIdAsync(int id)
+        {
+            return await base.FindByIdAsync(id.ToString());
+        }
+
+        public new async Task<IdentityResult> UpdateAsync(User user)
+        {
+            User userInDb = await FindByIdAsync(user.Id);
+
+            userInDb.PhoneNumber = user.PhoneNumber;
+            userInDb.UserName = user.UserName;
+            userInDb.Email= user.Email;            
+
+            return await base.UpdateAsync(userInDb);
+        }
     }
 }

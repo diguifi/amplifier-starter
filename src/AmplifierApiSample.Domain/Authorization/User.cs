@@ -7,6 +7,6 @@ namespace AmplifierApiSample.Domain.Authorization
 {
     public class User : IdentityUser<int>, IEntity<int>, IMayHaveTenant, ITenantFilter, IFullAuditedEntity, ISoftDelete
     {
-        public string Name { get; set; }
+        
     }
 }

@@ -2,10 +2,13 @@
 using Amplifier.AspNetCore.Authentication;
 using Amplifier.AspNetCore.Repositories;
 using Amplifier.EntityFrameworkCore.Repositories;
+using AmplifierApiSample.Application.MultiTenancy;
+using AmplifierApiSample.Application.Users;
 using AmplifierApiSample.Data;
 using AmplifierApiSample.Domain.Authentication;
 using AmplifierApiSample.Domain.Authorization;
 using AmplifierApiSample.Domain.MultiTenancy;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -94,6 +97,8 @@ namespace AmplifierApiSample
                     .RequireAuthenticatedUser().Build());
             });
 
+            services.AddAutoMapper();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSwaggerGen(c =>
@@ -113,6 +118,8 @@ namespace AmplifierApiSample
             services.AddScoped<ILoginManager, LoginManager>();
             services.AddScoped(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
             services.AddScoped<DbContext, ApplicationDbContext>();
+            services.AddScoped<ITenantAppService, TenantAppService>();
+            services.AddScoped<IUserAppService, UserAppService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

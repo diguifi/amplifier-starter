@@ -9,7 +9,7 @@ namespace AmplifierApiSample.Domain.Authorization
         Task<IdentityResult> CreateAsync(User user, string password);
         Task<IdentityResult> DeleteAsync(User user);
         Task<IList<User>> GetAllUsers();
-        Task<User> FindByIdAsync(string id);
+        Task<User> FindByIdAsync(int id);
         Task<IdentityResult> UpdateAsync(User user);
         Task<User> FindByNameAsync(string userName);
         Task<bool> IsInRoleAsync(User user, string role);
