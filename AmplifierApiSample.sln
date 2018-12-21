@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierApiSample.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierApiSample.CrossCutting", "src\AmplifierApiSample.CrossCutting\AmplifierApiSample.CrossCutting.csproj", "{A95F08F2-40DD-474A-9DF1-8141D68FA97F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplifierApiSample.Application", "AmplifierApiSample.Application\AmplifierApiSample.Application.csproj", "{EAF21ACF-EC84-429A-8E81-D5FE8907D8CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplifierApiSample.Application", "src\AmplifierApiSample.Application\AmplifierApiSample.Application.csproj", "{EAF21ACF-EC84-429A-8E81-D5FE8907D8CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
