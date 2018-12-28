@@ -48,8 +48,7 @@ namespace AmplifierApiSample.Application.MultiTenancy
             try
             {
                 IdentityResult userCreationResult = await _userManager.CreateAsync(new User
-                {
-                    Id = 0,
+                {                    
                     UserName = "admin" + "-" + _userSession.TenantId.ToString(),
                     Email = tenantDto.Email,
                     EmailConfirmed = true,

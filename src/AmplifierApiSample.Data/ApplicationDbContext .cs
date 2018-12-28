@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace AmplifierApiSample.Data
 {
-    public class ApplicationDbContext : IdentityDbContextBase<User, IdentityRole<int>, int>
+    public class ApplicationDbContext : IdentityDbContextBase<Tenant, User, Role, int>
     {
         private readonly IUserSession<int> _userSession;
 
@@ -23,23 +23,17 @@ namespace AmplifierApiSample.Data
 
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<User> ApplicationUsers { get; set; }
+        public DbSet<Role> ApplicationRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var entities = modelBuilder.Model.GetEntityTypes().ToList();
-            modelBuilder.MultiTenancy<Tenant>(entities);
-            modelBuilder.Auditing<User, int?>(entities);            
-            EnableTenantAndSoftDeleteFilters(modelBuilder, entities);
+            modelBuilder.ForNpgsqlUseIdentityColumns();
+            base.OnModelCreating(modelBuilder);
             SeedDataBase(modelBuilder);
-            base.OnModelCreating(modelBuilder);            
         }
 
         private void SeedDataBase(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = "Admin", NormalizedName = "Admin".ToUpper() });
-
-            
-
+        {                        
             var hasher = new PasswordHasher<User>();
             modelBuilder.Entity<User>().HasData(new
             {
@@ -67,13 +61,15 @@ namespace AmplifierApiSample.Data
                 PhoneNumberConfirmed = true,
                 TwoFactorEnabled = false,
                 PhoneNumber = "123",
-            });            
-
-            modelBuilder.Entity<IdentityUserRole<int>>().HasData(new IdentityUserRole<int>
-            {
-                RoleId = 1,
-                UserId = 1
             });
+
+            modelBuilder.HasSequence<int>("UserId")
+                .StartsAt(2)
+                .IncrementsBy(1);
+
+            modelBuilder.Entity<User>()
+                .Property(x => x.Id)
+                .HasDefaultValueSql("nextval('\"UserId\"')");
         }
     }
 }

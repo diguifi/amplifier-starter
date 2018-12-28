@@ -144,7 +144,7 @@ namespace AmplifierApiSample
             });
 
             app.UseAuthentication();
-            app.UseUserSession<int>();
+            app.UseAmplifier<int>();
 
             app.UseMvc();
         }
