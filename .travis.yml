@@ -1,0 +1,8 @@
+language: csharp
+solution: AmplifierStarter.sln
+dotnet: 2.2
+mono: none
+dist: xenial
+script:
+    - dotnet restore
+    - dotnet build
