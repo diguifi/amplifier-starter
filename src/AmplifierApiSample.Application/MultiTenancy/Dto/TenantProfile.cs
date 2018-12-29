@@ -1,7 +1,7 @@
-﻿using AmplifierApiSample.Domain.MultiTenancy;
+﻿using AmplifierStarter.Domain.MultiTenancy;
 using AutoMapper;
 
-namespace AmplifierApiSample.Application.MultiTenancy.Dto
+namespace AmplifierStarter.Application.MultiTenancy.Dto
 {
     public class TenantProfile : Profile
     {

@@ -1,13 +1,13 @@
 ﻿using Amplifier.AspNetCore.Authentication;
-using AmplifierApiSample.Application.Users.Dto;
-using AmplifierApiSample.Domain.Authorization;
+using AmplifierStarter.Application.Users.Dto;
+using AmplifierStarter.Domain.Authorization;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Application.Users
+namespace AmplifierStarter.Application.Users
 {
     public class UserAppService : IUserAppService
     {        

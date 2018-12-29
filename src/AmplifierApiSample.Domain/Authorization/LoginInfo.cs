@@ -1,4 +1,4 @@
-﻿namespace AmplifierApiSample.Domain.Authorization
+﻿namespace AmplifierStarter.Domain.Authorization
 {
     public class LoginInfo
     {

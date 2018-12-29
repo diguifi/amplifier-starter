@@ -1,7 +1,7 @@
-﻿using AmplifierApiSample.Domain.Authorization;
+﻿using AmplifierStarter.Domain.Authorization;
 using AutoMapper;
 
-namespace AmplifierApiSample.Application.Users.Dto
+namespace AmplifierStarter.Application.Users.Dto
 {
     public class UserProfile : Profile
     {

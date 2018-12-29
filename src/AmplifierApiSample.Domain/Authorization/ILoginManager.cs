@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Domain.Authorization
+namespace AmplifierStarter.Domain.Authorization
 {
     public interface ILoginManager
     {
