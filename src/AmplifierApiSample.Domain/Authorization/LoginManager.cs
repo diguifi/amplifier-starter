@@ -36,7 +36,7 @@ namespace AmplifierStarter.Domain.Authorization
                     User = null,
                     Message = "Login failed. Tenant not found.",
                     Succeeded = false
-                }; ;
+                };
             }
 
             if(tenant != null && !tenant.IsActive)
@@ -46,7 +46,7 @@ namespace AmplifierStarter.Domain.Authorization
                     User = null,
                     Message = "Login failed. Tenant is not active.",
                     Succeeded = false
-                }; ;
+                };
             }
 
             if (tenant != null)

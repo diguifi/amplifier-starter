@@ -7,6 +7,5 @@ namespace AmplifierStarter.Domain.Authentication
 {
     public class Role : IdentityRole<int>, IEntity<int>, IMayHaveTenant, ITenantFilter, IFullAuditedEntity, ISoftDelete
     {
-
     }
 }

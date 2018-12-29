@@ -22,7 +22,6 @@ namespace AmplifierStarter.Domain.Authorization
             ILogger<UserManager<User>> logger)
             : base(userStore, options, passwordHasher, userValidators, passwordValidators, lookupNormalizer, errors, services, logger)
         {
-
         }
 
         public async Task<IList<User>> GetAllUsers()

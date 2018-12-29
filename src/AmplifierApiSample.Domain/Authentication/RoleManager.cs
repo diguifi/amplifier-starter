@@ -15,7 +15,6 @@ namespace AmplifierStarter.Domain.Authentication
                            ILogger<RoleManager<Role>> logger)
                            : base(store, roleValidators, keyNormalizer, errors, logger)
         {
-
         }
 
         public async Task<IdentityResult> CreateRoleAsync(Role role)

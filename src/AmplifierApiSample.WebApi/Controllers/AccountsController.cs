@@ -53,7 +53,6 @@ namespace AmplifierStarter.WebApi.Controllers
                 UserId = user.UserId
             };
 
-
             LoginResult loginResult = await _loginManager.LoginAsync(loginInfo);
 
             if(loginResult.Succeeded)
