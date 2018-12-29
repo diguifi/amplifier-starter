@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace AmplifierApiSample.Domain.Authorization
+namespace AmplifierStarter.Domain.Authorization
 {
     public interface IUserManager
     {

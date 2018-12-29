@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using AmplifierApiSample.Application.Users.Dto;
-using AmplifierApiSample.Domain.Authorization;
+using AmplifierStarter.Application.Users.Dto;
+using AmplifierStarter.Domain.Authorization;
 using Microsoft.AspNetCore.Identity;
 
-namespace AmplifierApiSample.Application.Users
+namespace AmplifierStarter.Application.Users
 {
     public interface IUserAppService
     {

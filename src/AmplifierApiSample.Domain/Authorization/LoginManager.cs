@@ -1,11 +1,11 @@
 ﻿using Amplifier.AspNetCore.Authentication;
 using Amplifier.AspNetCore.Repositories;
-using AmplifierApiSample.Domain.MultiTenancy;
+using AmplifierStarter.Domain.MultiTenancy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Domain.Authorization
+namespace AmplifierStarter.Domain.Authorization
 {
     public class LoginManager : ILoginManager
     {

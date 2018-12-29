@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierApiSample.WebApi", "src\AmplifierApiSample.WebApi\AmplifierApiSample.WebApi.csproj", "{6FC13503-0349-458E-8AC5-C67C8129B573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierStarter.WebApi", "src\AmplifierApiSample.WebApi\AmplifierStarter.WebApi.csproj", "{6FC13503-0349-458E-8AC5-C67C8129B573}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierApiSample.Data", "src\AmplifierApiSample.Data\AmplifierApiSample.Data.csproj", "{D23C517A-9D53-4456-9849-E5728918CCBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierStarter.Data", "src\AmplifierApiSample.Data\AmplifierStarter.Data.csproj", "{D23C517A-9D53-4456-9849-E5728918CCBB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierApiSample.Domain", "src\AmplifierApiSample.Domain\AmplifierApiSample.Domain.csproj", "{51F0E47F-4173-4EE4-865A-3ADAD7D27F8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierStarter.Domain", "src\AmplifierApiSample.Domain\AmplifierStarter.Domain.csproj", "{51F0E47F-4173-4EE4-865A-3ADAD7D27F8B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierApiSample.CrossCutting", "src\AmplifierApiSample.CrossCutting\AmplifierApiSample.CrossCutting.csproj", "{A95F08F2-40DD-474A-9DF1-8141D68FA97F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierStarter.CrossCutting", "src\AmplifierApiSample.CrossCutting\AmplifierStarter.CrossCutting.csproj", "{A95F08F2-40DD-474A-9DF1-8141D68FA97F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplifierApiSample.Application", "src\AmplifierApiSample.Application\AmplifierApiSample.Application.csproj", "{EAF21ACF-EC84-429A-8E81-D5FE8907D8CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplifierStarter.Application", "src\AmplifierApiSample.Application\AmplifierStarter.Application.csproj", "{EAF21ACF-EC84-429A-8E81-D5FE8907D8CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

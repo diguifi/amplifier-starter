@@ -1,14 +1,14 @@
 ﻿using Amplifier.AspNetCore.Authentication;
-using AmplifierApiSample.Application.MultiTenancy;
-using AmplifierApiSample.Application.MultiTenancy.Dto;
-using AmplifierApiSample.Domain.Authorization;
+using AmplifierStarter.Application.MultiTenancy;
+using AmplifierStarter.Application.MultiTenancy.Dto;
+using AmplifierStarter.Domain.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.WebApi.Controllers
+namespace AmplifierStarter.WebApi.Controllers
 {
     [Authorize("Bearer")]
     [Route("api/[controller]")]

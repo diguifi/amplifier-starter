@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Domain.Authentication
+namespace AmplifierStarter.Domain.Authentication
 {
     public class RoleManager : RoleManager<Role>, IRoleManager
     {

@@ -1,4 +1,4 @@
-﻿namespace AmplifierApiSample.Application.Users.Dto
+﻿namespace AmplifierStarter.Application.Users.Dto
 {
     public class UserDto
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AmplifierApiSample.Application.MultiTenancy.Dto
+namespace AmplifierStarter.Application.MultiTenancy.Dto
 {
     public class TenantDto
     {

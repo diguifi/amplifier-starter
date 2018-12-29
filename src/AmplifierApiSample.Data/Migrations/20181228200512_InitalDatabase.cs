@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace AmplifierApiSample.Data.Migrations
+namespace AmplifierStarter.Data.Migrations
 {
     public partial class InitalDatabase : Migration
     {

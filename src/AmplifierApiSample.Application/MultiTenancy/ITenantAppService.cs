@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using AmplifierApiSample.Application.MultiTenancy.Dto;
-using AmplifierApiSample.Domain.MultiTenancy;
+using AmplifierStarter.Application.MultiTenancy.Dto;
+using AmplifierStarter.Domain.MultiTenancy;
 
-namespace AmplifierApiSample.Application.MultiTenancy
+namespace AmplifierStarter.Application.MultiTenancy
 {
     public interface ITenantAppService
     {

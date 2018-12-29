@@ -1,14 +1,14 @@
 ﻿using Amplifier.AspNetCore.Authentication;
-using AmplifierApiSample.Application.MultiTenancy.Dto;
-using AmplifierApiSample.Domain.Authorization;
-using AmplifierApiSample.Domain.MultiTenancy;
+using AmplifierStarter.Application.MultiTenancy.Dto;
+using AmplifierStarter.Domain.Authorization;
+using AmplifierStarter.Domain.MultiTenancy;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Application.MultiTenancy
+namespace AmplifierStarter.Application.MultiTenancy
 {
     public class TenantAppService : ITenantAppService
     {

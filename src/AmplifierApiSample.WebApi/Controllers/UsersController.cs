@@ -1,5 +1,5 @@
-﻿using AmplifierApiSample.Application.Users;
-using AmplifierApiSample.Application.Users.Dto;
+﻿using AmplifierStarter.Application.Users;
+using AmplifierStarter.Application.Users.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.WebApi.Controllers
+namespace AmplifierStarter.WebApi.Controllers
 {
     [Authorize("Bearer")]
     [Route("api/[controller]")]

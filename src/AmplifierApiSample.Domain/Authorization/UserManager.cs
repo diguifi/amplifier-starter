@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Domain.Authorization
+namespace AmplifierStarter.Domain.Authorization
 {
     public class UserManager : UserManager<User>, IUserManager
     {

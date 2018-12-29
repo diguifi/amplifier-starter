@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.Domain.MultiTenancy
+namespace AmplifierStarter.Domain.MultiTenancy
 {
     public interface ITenantManager
     {

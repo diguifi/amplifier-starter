@@ -1,15 +1,15 @@
 ﻿using Amplifier.AspNetCore.Authentication;
 using Amplifier.EntityFrameworkCore;
 using Amplifier.EntityFrameworkCore.Identity;
-using AmplifierApiSample.Domain.Authentication;
-using AmplifierApiSample.Domain.Authorization;
-using AmplifierApiSample.Domain.MultiTenancy;
+using AmplifierStarter.Domain.Authentication;
+using AmplifierStarter.Domain.Authorization;
+using AmplifierStarter.Domain.MultiTenancy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
-namespace AmplifierApiSample.Data
+namespace AmplifierStarter.Data
 {
     public class ApplicationDbContext : IdentityDbContextBase<Tenant, User, Role, int>
     {

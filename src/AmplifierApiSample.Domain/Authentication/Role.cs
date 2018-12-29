@@ -3,7 +3,7 @@ using Amplifier.AspNetCore.Entities;
 using Amplifier.AspNetCore.MultiTenancy;
 using Microsoft.AspNetCore.Identity;
 
-namespace AmplifierApiSample.Domain.Authentication
+namespace AmplifierStarter.Domain.Authentication
 {
     public class Role : IdentityRole<int>, IEntity<int>, IMayHaveTenant, ITenantFilter, IFullAuditedEntity, ISoftDelete
     {

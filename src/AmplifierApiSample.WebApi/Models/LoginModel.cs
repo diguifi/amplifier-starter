@@ -1,4 +1,4 @@
-﻿namespace AmplifierApiSample.WebApi.Models
+﻿namespace AmplifierStarter.WebApi.Models
 {
     public class LoginModel
     {

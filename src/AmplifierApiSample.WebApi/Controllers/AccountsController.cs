@@ -1,7 +1,7 @@
 ﻿using Amplifier.AspNetCore.Authentication;
-using AmplifierApiSample.Data;
-using AmplifierApiSample.Domain.Authorization;
-using AmplifierApiSample.WebApi.Models;
+using AmplifierStarter.Data;
+using AmplifierStarter.Domain.Authorization;
+using AmplifierStarter.WebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -14,7 +14,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace AmplifierApiSample.WebApi.Controllers
+namespace AmplifierStarter.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
