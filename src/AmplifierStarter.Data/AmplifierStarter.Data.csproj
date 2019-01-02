@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmplifierApiSample.Domain\AmplifierStarter.Domain.csproj" />
+    <ProjectReference Include="..\AmplifierStarter.Domain\AmplifierStarter.Domain.csproj" />
   </ItemGroup>
 
 </Project>
