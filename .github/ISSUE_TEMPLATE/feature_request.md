@@ -16,10 +16,10 @@ assignees: ''
 **When**
 **Then**
 
-# Tasks
+### Tasks
 - [ ] Task one
 - [ ] Task two
 
-# More info
+### More info
 
 Screenshots, links, and any other resource to help explain the feature request
